@@ -1,0 +1,57 @@
+<resources>
+
+    <!--Keys-->
+    <string name="pref_key_enable_music_controls">enable_music_controls</string>
+    <string name="pref_key_volume_up_action">volume_up_action</string>
+    <string name="pref_key_volume_down_action">volume_down_action</string>
+    <string name="pref_key_music_controls_timeout">music_controls_timeout</string>
+    <string name="pref_key_clock_position">clock_position</string>
+
+
+    <!--Clock-->
+    <string name="pref_title_clock_position">Clock position</string>
+    <string-array name="pref_clock_position_titles">
+        <item>Left</item>
+        <item>Center</item>
+        <item>Right(default)</item>
+    </string-array>
+    <string-array name="pref_clock_position_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!--Music Controls-->
+    <string name="pref_header_music_controls">Music Controls</string>
+    <string name="pref_title_enable_music_controls">Enable music controls</string>
+    <string name="pref_title_music_controls_volume_up_action">Volume up action</string>
+    <string name="pref_title_music_controls_volume_down_action">Volume down action</string>
+    <string name="pref_title_music_controls_timeout">Timeout</string>
+    <string-array name="pref_music_controls_button_titles">
+        <item>Next</item>
+        <item>Pause</item>
+        <item>Toggle play/pause</item>
+        <item>Previous</item>
+    </string-array>
+    <string-array name="pref_music_controls_button_values">
+        <item>87</item>
+        <item>127</item>
+        <item>85</item>
+        <item>88</item>
+    </string-array>
+    <string-array name="pref_music_controls_timeout_titles">
+        <item>100ms</item>
+        <item>200ms</item>
+        <item>300ms</item>
+        <item>400ms</item>
+        <item>500ms</item>
+    </string-array>
+    <string-array name="pref_music_controls_timeout_values">
+        <item>100</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+    </string-array>
+
+</resources>
