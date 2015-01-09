@@ -11,14 +11,16 @@
     <!--Clock-->
     <string name="pref_title_clock_position">Clock position</string>
     <string-array name="pref_clock_position_titles">
-        <item>Left</item>
+	    <item>Remove</item>
+		<item>Right(default)</item>
         <item>Center</item>
-        <item>Right(default)</item>
+        <item>Left</item>
     </string-array>
     <string-array name="pref_clock_position_values">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
 
     <!--Music Controls-->
