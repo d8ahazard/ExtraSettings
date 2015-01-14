@@ -7,6 +7,8 @@
     <string name="pref_key_music_controls_timeout">music_controls_timeout</string>
     <string name="pref_key_clock_position">clock_position</string>
     <string name="pref_key_volume_panel_timeout">volume_panel_timeout</string>
+    <string name="pref_key_heads_up_timeout">heads_up_timeout</string>
+    <string name="pref_key_heads_up_test">heads_up_test</string>
 
     <!--Clock-->
     <string name="pref_title_clock_position">Clock position</string>
@@ -71,5 +73,33 @@
         <item>2000</item>
         <item>3000</item>
         <item>4000</item>
+    </string-array>
+
+    <!--Heads Up-->
+    <string name="pref_title_heads_up_test">Test heads up timeout</string>
+    <string name="pref_title_heads_up_timeout">Heads up timeout</string>
+    <string-array name="pref_heads_up_timeout_titles">
+        <item>1s</item>
+        <item>2s</item>
+        <item>3s</item>
+        <item>4s</item>
+        <item>5s</item>
+        <item>6s</item>
+        <item>7s</item>
+        <item>8s</item>
+        <item>9s</item>
+        <item>10s(default)</item>
+    </string-array>
+    <string-array name="pref_heads_up_timeout_values">
+        <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
+        <item>4000</item>
+        <item>5000</item>
+        <item>6000</item>
+        <item>7000</item>
+        <item>8000</item>
+        <item>9000</item>
+        <item>10000</item>
     </string-array>
 </resources>
