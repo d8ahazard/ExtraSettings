@@ -9,5 +9,13 @@
         android:entryValues="@array/pref_clock_position_values"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null" />
+    <ListPreference
+        android:key="@string/pref_key_volume_panel_timeout"
+        android:title="@string/pref_title_volume_panel_timeout"
+        android:defaultValue="3000"
+        android:entries="@array/pref_volume_panel_timeout_titles"
+        android:entryValues="@array/pref_volume_panel_timeout_values"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null" />
 
 </PreferenceScreen>
