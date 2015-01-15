@@ -7,6 +7,7 @@
     <string name="pref_key_music_controls_timeout">music_controls_timeout</string>
     <string name="pref_key_clock_position">clock_position</string>
     <string name="pref_key_volume_panel_timeout">volume_panel_timeout</string>
+    <string name="pref_key_heads_up_enabled">heads_up_notifications_enabled</string>
     <string name="pref_key_heads_up_timeout">heads_up_timeout</string>
     <string name="pref_key_heads_up_test">heads_up_test</string>
 
@@ -77,6 +78,7 @@
 
     <!--Heads Up-->
     <string name="pref_header_heads_up">Heads up notifications</string>
+    <string name="pref_title_enable_heads_up">Enable heads up notifications</string>
     <string name="pref_title_heads_up_test">Test heads up timeout</string>
     <string name="pref_title_heads_up_timeout">Heads up timeout</string>
     <string-array name="pref_heads_up_timeout_titles">

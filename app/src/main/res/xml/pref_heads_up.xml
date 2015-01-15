@@ -1,5 +1,10 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference
+        android:key="@string/pref_key_heads_up_enabled"
+        android:title="@string/pref_title_enable_heads_up"
+        android:defaultValue="true" />
     <ListPreference
+        android:dependency="@string/pref_key_heads_up_enabled"
         android:key="@string/pref_key_heads_up_timeout"
         android:title="@string/pref_title_heads_up_timeout"
         android:defaultValue="10000"

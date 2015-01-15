@@ -70,12 +70,16 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
         for (int i = 0; i < getPreferenceScreen().getPreferenceCount(); i++) {
             Preference preference = getPreferenceScreen().getPreference(i);
             if (preference.getKey() != null) {
-                if (preference instanceof ListPreference) {
-                    ((ListPreference) preference).setValue(Settings.System.getString(getContentResolver(), preference.getKey()));
-                } else if (preference instanceof CheckBoxPreference) {
-                    ((CheckBoxPreference) preference).setChecked(Settings.System.getInt(getContentResolver(), preference.getKey(), 0) == 1 ? true : false);
-                } else if (preference instanceof SwitchPreference) {
-                    ((SwitchPreference) preference).setChecked(Settings.System.getInt(getContentResolver(), preference.getKey(), 0) == 1 ? true : false);
+                if (preference.getKey().matches(getString(R.string.pref_key_heads_up_enabled))) {
+                    ((SwitchPreference) preference).setChecked(Settings.Global.getInt(getContentResolver(), preference.getKey(), 0) == 1 ? true : false);
+                } else {
+                    if (preference instanceof ListPreference) {
+                        ((ListPreference) preference).setValue(Settings.System.getString(getContentResolver(), preference.getKey()));
+                    } else if (preference instanceof CheckBoxPreference) {
+                        ((CheckBoxPreference) preference).setChecked(Settings.System.getInt(getContentResolver(), preference.getKey(), 0) == 1 ? true : false);
+                    } else if (preference instanceof SwitchPreference) {
+                        ((SwitchPreference) preference).setChecked(Settings.System.getInt(getContentResolver(), preference.getKey(), 0) == 1 ? true : false);
+                    }
                 }
             }
         }
@@ -113,10 +117,14 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (findPreference(key) instanceof SwitchPreference) {
-            Settings.System.putInt(getContentResolver(), key, sharedPreferences.getBoolean(key, false) ? 1 : 0);
-        } else if (findPreference(key) instanceof ListPreference) {
-            Settings.System.putString(getContentResolver(), key, sharedPreferences.getString(key, ""));
+        if (key.matches(getString(R.string.pref_key_heads_up_enabled))) {
+            Settings.Global.putInt(getContentResolver(), key, sharedPreferences.getBoolean(key, false) ? 1 : 0);
+        } else {
+            if (findPreference(key) instanceof SwitchPreference) {
+                Settings.System.putInt(getContentResolver(), key, sharedPreferences.getBoolean(key, false) ? 1 : 0);
+            } else if (findPreference(key) instanceof ListPreference) {
+                Settings.System.putString(getContentResolver(), key, sharedPreferences.getString(key, ""));
+            }
         }
     }
 
@@ -125,19 +133,21 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
         if (preference instanceof CheckBoxPreference) {
             Settings.System.putInt(getContentResolver(), preference.getKey(), ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
             return true;
-        } else if (preference.getKey().matches(getString(R.string.pref_key_heads_up_test))){
+        } else if (preference.getKey().matches(getString(R.string.pref_key_heads_up_test))) {
             showNotification();
         }
         return false;
     }
 
     private int mId = 0;
+
     private void showNotification() {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.ic_launcher)
+                        //Should move these to strings.xml but I doubt I'll need translations so I'll keep it this way for now.
                         .setContentTitle("TEST")
-                        .setContentText("Testing heads up timeout.")
+                        .setContentText("Testing heads up.")
                         .setContentIntent(PendingIntent.getActivity(this, 0, new Intent(), 0))
                         .setPriority(NotificationCompat.PRIORITY_MAX)
                         .setAutoCancel(true)
