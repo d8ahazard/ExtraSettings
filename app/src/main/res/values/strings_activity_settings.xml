@@ -76,6 +76,7 @@
     </string-array>
 
     <!--Heads Up-->
+    <string name="pref_header_heads_up">Heads up notifications</string>
     <string name="pref_title_heads_up_test">Test heads up timeout</string>
     <string name="pref_title_heads_up_timeout">Heads up timeout</string>
     <string-array name="pref_heads_up_timeout_titles">

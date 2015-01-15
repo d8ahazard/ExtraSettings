@@ -1,6 +1,4 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-
-
     <ListPreference
         android:key="@string/pref_key_clock_position"
         android:title="@string/pref_title_clock_position"
@@ -17,16 +15,4 @@
         android:entryValues="@array/pref_volume_panel_timeout_values"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null" />
-    <ListPreference
-        android:key="@string/pref_key_heads_up_timeout"
-        android:title="@string/pref_title_heads_up_timeout"
-        android:defaultValue="10000"
-        android:entries="@array/pref_heads_up_timeout_titles"
-        android:entryValues="@array/pref_heads_up_timeout_values"
-        android:negativeButtonText="@null"
-        android:positiveButtonText="@null" />
-    <Preference
-        android:key="@string/pref_key_heads_up_test"
-        android:title="@string/pref_title_heads_up_test" />
-
 </PreferenceScreen>

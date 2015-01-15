@@ -47,6 +47,10 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
         addPreferencesFromResource(R.xml.pref_general);
 
         PreferenceCategory fakeHeader = new PreferenceCategory(this);
+        fakeHeader.setTitle(R.string.pref_header_heads_up);
+        getPreferenceScreen().addPreference(fakeHeader);
+        addPreferencesFromResource(R.xml.pref_heads_up);
+        fakeHeader = new PreferenceCategory(this);
         fakeHeader.setTitle(R.string.pref_header_music_controls);
         getPreferenceScreen().addPreference(fakeHeader);
         addPreferencesFromResource(R.xml.pref_music_controls);
@@ -55,13 +59,10 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
             Preference preference = getPreferenceScreen().getPreference(i);
             if (preference instanceof ListPreference) {
                 bindPreferenceSummaryToValue(preference);
-            } else if (preference instanceof CheckBoxPreference) {
+            } else if (preference instanceof CheckBoxPreference || preference instanceof Preference) {
                 preference.setOnPreferenceClickListener(this);
             }
         }
-        //Wish I didn't have to add this...
-        Preference headsUpTest = (Preference)findPreference(getString(R.string.pref_key_heads_up_test));
-        headsUpTest.setOnPreferenceClickListener(this);
         setDefaultValues();
     }
 
