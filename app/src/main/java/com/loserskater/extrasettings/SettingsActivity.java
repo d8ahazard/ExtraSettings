@@ -50,6 +50,12 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
         fakeHeader.setTitle(R.string.pref_header_heads_up);
         getPreferenceScreen().addPreference(fakeHeader);
         addPreferencesFromResource(R.xml.pref_heads_up);
+
+        fakeHeader = new PreferenceCategory(this);
+        fakeHeader.setTitle(R.string.pref_header_back_kill);
+        getPreferenceScreen().addPreference(fakeHeader);
+        addPreferencesFromResource(R.xml.pref_back_to_kill);
+
         fakeHeader = new PreferenceCategory(this);
         fakeHeader.setTitle(R.string.pref_header_music_controls);
         getPreferenceScreen().addPreference(fakeHeader);

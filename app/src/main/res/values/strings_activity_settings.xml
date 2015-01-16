@@ -10,6 +10,8 @@
     <string name="pref_key_heads_up_enabled">heads_up_notifications_enabled</string>
     <string name="pref_key_heads_up_timeout">heads_up_timeout</string>
     <string name="pref_key_heads_up_test">heads_up_test</string>
+    <string name="pref_key_longpress_back_kill_enabled">longpress_back_kill_enable</string>
+    <string name="pref_key_longpress_back_kill_timeout">longpress_back_kill_timeout</string>
 
     <!--Clock-->
     <string name="pref_title_clock_position">Clock position</string>
@@ -104,5 +106,24 @@
         <item>8000</item>
         <item>9000</item>
         <item>10000</item>
+    </string-array>
+
+    <!--Back to kill-->
+    <string name="pref_header_back_kill">Back to kill</string>
+    <string name="pref_title_enable_back_kill">Long press back to kill app</string>
+    <string name="pref_title_back_kill_timeout">Long press timeout</string>
+    <string-array name="pref_back_kill_timeout_titles">
+        <item>.5s</item>
+        <item>1s</item>
+        <item>1.5s</item>
+        <item>2s(default)</item>
+        <item>3s</item>
+    </string-array>
+    <string-array name="pref_back_kill_timeout_values">
+        <item>500</item>
+        <item>1000</item>
+        <item>1500</item>
+        <item>2000</item>
+        <item>3000</item>
     </string-array>
 </resources>
