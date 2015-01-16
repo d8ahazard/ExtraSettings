@@ -16,8 +16,8 @@
     <!--Clock-->
     <string name="pref_title_clock_position">Clock position</string>
     <string-array name="pref_clock_position_titles">
-	    <item>Remove</item>
-		<item>Right(default)</item>
+        <item>Remove</item>
+        <item>Right(default)</item>
         <item>Center</item>
         <item>Left</item>
     </string-array>
