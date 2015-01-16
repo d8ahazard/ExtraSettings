@@ -37,13 +37,11 @@
     <string-array name="pref_music_controls_button_titles">
         <item>Next</item>
         <item>Pause</item>
-        <item>Toggle play/pause</item>
         <item>Previous</item>
     </string-array>
     <string-array name="pref_music_controls_button_values">
         <item>87</item>
         <item>127</item>
-        <item>85</item>
         <item>88</item>
     </string-array>
     <string-array name="pref_music_controls_timeout_titles">
