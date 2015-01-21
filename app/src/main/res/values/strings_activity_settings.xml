@@ -12,6 +12,10 @@
     <string name="pref_key_heads_up_test">heads_up_test</string>
     <string name="pref_key_longpress_back_kill_enabled">longpress_back_kill_enable</string>
     <string name="pref_key_longpress_back_kill_timeout">longpress_back_kill_timeout</string>
+    <string name="pref_key_ime_notification">ime_notification</string>
+
+    <!--General-->
+    <string name="pref_title_ime_notification">Show ime notification</string>
 
     <!--Clock-->
     <string name="pref_title_clock_position">Clock position</string>

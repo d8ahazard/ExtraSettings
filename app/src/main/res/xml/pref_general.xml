@@ -15,4 +15,8 @@
         android:entryValues="@array/pref_volume_panel_timeout_values"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null" />
+    <CheckBoxPreference
+        android:key="@string/pref_key_ime_notification"
+        android:title="@string/pref_title_ime_notification"
+        android:defaultValue="true" />
 </PreferenceScreen>
