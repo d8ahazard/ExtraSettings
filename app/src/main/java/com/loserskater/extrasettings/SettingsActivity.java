@@ -61,6 +61,11 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
         getPreferenceScreen().addPreference(fakeHeader);
         addPreferencesFromResource(R.xml.pref_music_controls);
 
+        fakeHeader = new PreferenceCategory(this);
+        fakeHeader.setTitle(R.string.pref_header_lock_screen);
+        getPreferenceScreen().addPreference(fakeHeader);
+        addPreferencesFromResource(R.xml.pref_lockscreen);
+
         for (int i = 0; i < getPreferenceScreen().getPreferenceCount(); i++) {
             Preference preference = getPreferenceScreen().getPreference(i);
             if (preference instanceof ListPreference) {

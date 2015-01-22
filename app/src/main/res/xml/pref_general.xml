@@ -19,4 +19,8 @@
         android:key="@string/pref_key_ime_notification"
         android:title="@string/pref_title_ime_notification"
         android:defaultValue="true" />
+    <CheckBoxPreference
+        android:key="@string/pref_key_show_alarm_icon"
+        android:title="@string/pref_title_show_alarm_icon"
+        android:defaultValue="true" />
 </PreferenceScreen>
