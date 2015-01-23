@@ -74,26 +74,6 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
                 preference.setOnPreferenceClickListener(this);
             }
         }
-        setDefaultValues();
-    }
-
-    private void setDefaultValues() {
-        for (int i = 0; i < getPreferenceScreen().getPreferenceCount(); i++) {
-            Preference preference = getPreferenceScreen().getPreference(i);
-            if (preference.getKey() != null) {
-                if (preference.getKey().matches(getString(R.string.pref_key_heads_up_enabled))) {
-                    ((SwitchPreference) preference).setChecked(Settings.Global.getInt(getContentResolver(), preference.getKey(), 0) == 1 ? true : false);
-                } else {
-                    if (preference instanceof ListPreference) {
-                        ((ListPreference) preference).setValue(Settings.System.getString(getContentResolver(), preference.getKey()));
-                    } else if (preference instanceof CheckBoxPreference) {
-                        ((CheckBoxPreference) preference).setChecked(Settings.System.getInt(getContentResolver(), preference.getKey(), 0) == 1 ? true : false);
-                    } else if (preference instanceof SwitchPreference) {
-                        ((SwitchPreference) preference).setChecked(Settings.System.getInt(getContentResolver(), preference.getKey(), 0) == 1 ? true : false);
-                    }
-                }
-            }
-        }
     }
 
     private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
