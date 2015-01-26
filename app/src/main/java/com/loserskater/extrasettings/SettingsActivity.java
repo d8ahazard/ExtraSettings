@@ -47,6 +47,11 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
         addPreferencesFromResource(R.xml.pref_general);
 
         PreferenceCategory fakeHeader = new PreferenceCategory(this);
+        fakeHeader.setTitle(R.string.pref_header_status_bar);
+        getPreferenceScreen().addPreference(fakeHeader);
+        addPreferencesFromResource(R.xml.pref_status_bar);
+
+        fakeHeader = new PreferenceCategory(this);
         fakeHeader.setTitle(R.string.pref_header_heads_up);
         getPreferenceScreen().addPreference(fakeHeader);
         addPreferencesFromResource(R.xml.pref_heads_up);

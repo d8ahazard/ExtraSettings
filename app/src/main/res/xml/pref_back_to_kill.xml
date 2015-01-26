@@ -2,7 +2,7 @@
     <SwitchPreference
         android:key="@string/pref_key_longpress_back_kill_enabled"
         android:title="@string/pref_title_enable_back_kill"
-        android:defaultValue="true" />
+        android:defaultValue="false" />
     <ListPreference
         android:dependency="@string/pref_key_longpress_back_kill_enabled"
         android:key="@string/pref_key_longpress_back_kill_timeout"

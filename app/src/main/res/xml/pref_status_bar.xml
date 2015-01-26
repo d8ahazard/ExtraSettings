@@ -1,0 +1,41 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="@string/pref_key_clock_position"
+        android:title="@string/pref_title_clock_position"
+        android:defaultValue="1"
+        android:entries="@array/pref_clock_position_titles"
+        android:entryValues="@array/pref_clock_position_values"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null" />
+    <ListPreference
+        android:key="@string/pref_key_battery_style"
+        android:title="@string/pref_title_battery_style"
+        android:defaultValue="0"
+        android:entries="@array/pref_battery_style_titles"
+        android:entryValues="@array/pref_battery_style_values"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null" />
+    <ListPreference
+        android:key="@string/pref_key_battery_percent"
+        android:title="@string/pref_title_battery_percent"
+        android:defaultValue="0"
+        android:entries="@array/pref_battery_percent_titles"
+        android:entryValues="@array/pref_battery_percent_values"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null" />
+    <CheckBoxPreference
+        android:key="@string/pref_key_show_alarm_icon"
+        android:title="@string/pref_title_show_alarm_icon"
+        android:defaultValue="true" />
+    <CheckBoxPreference
+        android:key="@string/pref_key_quick_qs"
+        android:title="@string/pref_title_quick_qs"
+        android:summary="@string/pref_subtitle_quick_qs"
+        android:defaultValue="true" />
+    <CheckBoxPreference
+        android:key="@string/pref_key_double_tap_sleep"
+        android:title="@string/pref_title_double_tap_sleep"
+        android:summary="@string/pref_subtitle_double_tap_sleep"
+        android:defaultValue="true" />
+</PreferenceScreen>

@@ -2,7 +2,7 @@
     <SwitchPreference
         android:key="@string/pref_key_enable_music_controls"
         android:title="@string/pref_title_enable_music_controls"
-        android:defaultValue="true" />
+        android:defaultValue="false" />
     <ListPreference
         android:dependency="@string/pref_key_enable_music_controls"
         android:key="@string/pref_key_volume_up_action"

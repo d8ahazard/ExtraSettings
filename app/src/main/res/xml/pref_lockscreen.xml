@@ -7,4 +7,9 @@
         android:key="@string/pref_key_scramble_pin"
         android:title="@string/pref_title_scramble_pin"
         android:defaultValue="false" />
+    <PreferenceScreen
+        android:key="lockscreen_shortcuts_settings"
+        android:title="@string/lockscreen_targets_message">
+        <intent android:action=".LockscreenShortcutsActivity"/>
+    </PreferenceScreen>
 </PreferenceScreen>

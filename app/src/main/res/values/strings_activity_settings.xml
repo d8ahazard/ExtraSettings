@@ -16,24 +16,39 @@
     <string name="pref_key_show_alarm_icon">show_alarm_icon</string>
     <string name="pref_key_quick_unlock">quick_unlock</string>
     <string name="pref_key_scramble_pin">scramble_pin</string>
+    <string name="pref_key_battery_style">status_bar_battery_style</string>
+    <string name="pref_key_battery_percent">status_bar_show_battery_percent</string>
+    <string name="pref_key_volume_cursor">volume_key_cursor_control</string>
+    <string name="pref_key_quick_qs">status_bar_quick_qs_pulldown</string>
+    <string name="pref_key_double_tap_sleep">double_tap_sleep_gesture</string>
 
     <!--General-->
     <string name="pref_title_ime_notification">Show ime notification</string>
-    <string name="pref_title_show_alarm_icon">Show alarm icon</string>
-
-    <!--Clock-->
-    <string name="pref_title_clock_position">Clock position</string>
-    <string-array name="pref_clock_position_titles">
-        <item>Remove</item>
-        <item>Right(default)</item>
-        <item>Center</item>
-        <item>Left</item>
+    <string name="pref_title_volume_panel_timeout">Volume panel timeout</string>
+    <string-array name="pref_volume_panel_timeout_titles">
+        <item>500ms</item>
+        <item>1s</item>
+        <item>2s</item>
+        <item>3s(default)</item>
+        <item>4s</item>
     </string-array>
-    <string-array name="pref_clock_position_values">
+    <string-array name="pref_volume_panel_timeout_values">
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
+        <item>4000</item>
+    </string-array>
+    <string name="pref_title_volume_cursor">Volume keys move cursor</string>
+    <string-array name="pref_volume_cursor_titles">
+        <item>Disable</item>
+        <item>Up=left down=right</item>
+        <item>Up=right down=left</item>
+    </string-array>
+    <string-array name="pref_volume_cursor_values">
         <item>0</item>
         <item>1</item>
         <item>2</item>
-        <item>3</item>
     </string-array>
 
     <!--Music Controls-->
@@ -65,23 +80,6 @@
         <item>300</item>
         <item>400</item>
         <item>500</item>
-    </string-array>
-
-    <!--Volume Panel-->
-    <string name="pref_title_volume_panel_timeout">Volume panel timeout</string>
-    <string-array name="pref_volume_panel_timeout_titles">
-        <item>500ms</item>
-        <item>1s</item>
-        <item>2s</item>
-        <item>3s(default)</item>
-        <item>4s</item>
-    </string-array>
-    <string-array name="pref_volume_panel_timeout_values">
-        <item>500</item>
-        <item>1000</item>
-        <item>2000</item>
-        <item>3000</item>
-        <item>4000</item>
     </string-array>
 
     <!--Heads Up-->
@@ -137,4 +135,62 @@
     <string name="pref_header_lock_screen">Lock screen</string>
     <string name="pref_title_quick_unlock">Quick unlock</string>
     <string name="pref_title_scramble_pin">Scramble pin</string>
+    <!--From CM-->
+    <string name="lockscreen_settings_title">Lock screen</string>
+    <string name="lockscreen_targets_message">Lockscreen shortcuts</string>
+    <string name="lockscreen_default_target">Default</string>
+    <string name="lockscreen_message">Tap an icon on the left or right to reassign a lock screen shortcut.</string>
+    <string name="lockscreen_choose_action_title">Choose action</string>
+    <string name="profile_applist_title">Apps</string>
+    <string name="picker_activities">Activities</string>
+    <string name="select_custom_app_title">Select custom app</string>
+    <string name="select_custom_activity_title">Select custom activity</string>
+    <string name="select_application">Select application</string>
+
+    <!--Status bar-->
+    <string name="pref_header_status_bar">Status bar</string>
+    <string name="pref_title_show_alarm_icon">Show alarm icon</string>
+    <string name="pref_title_clock_position">Clock position</string>
+    <string-array name="pref_clock_position_titles">
+        <item>Remove</item>
+        <item>Right(default)</item>
+        <item>Center</item>
+        <item>Left</item>
+    </string-array>
+    <string-array name="pref_clock_position_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string name="pref_title_battery_style">Battery style</string>
+    <string-array name="pref_battery_style_titles">
+        <item>Portrait(default)</item>
+        <item>Landscape</item>
+        <item>Circle</item>
+        <!--<item>Text</item>-->
+        <item>Hide</item>
+    </string-array>
+    <string-array name="pref_battery_style_values">
+        <item>0</item>
+        <item>5</item>
+        <item>2</item>
+        <!--<item>6</item>-->
+        <item>4</item>
+    </string-array>
+    <string name="pref_title_battery_percent">Battery percent</string>
+    <string-array name="pref_battery_percent_titles">
+        <item>Hide(default)</item>
+        <item>Inside</item>
+        <!--<item>Next to</item>-->
+    </string-array>
+    <string-array name="pref_battery_percent_values">
+        <item>0</item>
+        <item>1</item>
+        <!--<item>2</item>-->
+    </string-array>
+    <string name="pref_title_quick_qs">One finger quick settings</string>
+    <string name="pref_subtitle_quick_qs">Pull down the status bar from the right side to show quick settings</string>
+    <string name="pref_title_double_tap_sleep">Double tap sleep</string>
+    <string name="pref_subtitle_double_tap_sleep">Double tap the status bar to sleep</string>
 </resources>
