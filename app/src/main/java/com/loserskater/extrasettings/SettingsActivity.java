@@ -1,9 +1,12 @@
 package com.loserskater.extrasettings;
 
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
@@ -120,6 +123,18 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
                 Settings.System.putInt(getContentResolver(), key, sharedPreferences.getBoolean(key, false) ? 1 : 0);
             } else if (findPreference(key) instanceof ListPreference) {
                 Settings.System.putString(getContentResolver(), key, sharedPreferences.getString(key, ""));
+                if (key.matches(getString(R.string.pref_key_navbar_height))) {
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                    dialog.setMessage("You must reboot in order for these changes to take effect.")
+                            .setPositiveButton("OK", new OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog alertDialog = dialog.create();
+                    alertDialog.show();
+                }
             }
         }
     }
@@ -141,7 +156,7 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.ic_launcher)
-                        //Should move these to strings.xml but I doubt I'll need translations so I'll keep it this way for now.
+                                //Should move these to strings.xml but I doubt I'll need translations so I'll keep it this way for now.
                         .setContentTitle("TEST")
                         .setContentText("Testing heads up.")
                         .setContentIntent(PendingIntent.getActivity(this, 0, new Intent(), 0))

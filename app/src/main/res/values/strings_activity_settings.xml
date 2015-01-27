@@ -21,6 +21,7 @@
     <string name="pref_key_volume_cursor">volume_key_cursor_control</string>
     <string name="pref_key_quick_qs">status_bar_quick_qs_pulldown</string>
     <string name="pref_key_double_tap_sleep">double_tap_sleep_gesture</string>
+    <string name="pref_key_navbar_height">navbar_height</string>
 
     <!--General-->
     <string name="pref_title_ime_notification">Show ime notification</string>
@@ -49,6 +50,19 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+    </string-array>
+    <string name="pref_title_navbar_height">Navigation bar height</string>
+    <string-array name="pref_navbar_height_titles">
+        <item>32</item>
+        <item>36</item>
+        <item>42</item>
+        <item>48(default)</item>
+    </string-array>
+    <string-array name="pref_navbar_height_values">
+        <item>96</item>
+        <item>108</item>
+        <item>126</item>
+        <item>144</item>
     </string-array>
 
     <!--Music Controls-->
@@ -168,26 +182,26 @@
         <item>Portrait(default)</item>
         <item>Landscape</item>
         <item>Circle</item>
-        <!--<item>Text</item>-->
+        <item>Text</item>
         <item>Hide</item>
     </string-array>
     <string-array name="pref_battery_style_values">
         <item>0</item>
         <item>5</item>
         <item>2</item>
-        <!--<item>6</item>-->
+        <item>6</item>
         <item>4</item>
     </string-array>
     <string name="pref_title_battery_percent">Battery percent</string>
     <string-array name="pref_battery_percent_titles">
         <item>Hide(default)</item>
         <item>Inside</item>
-        <!--<item>Next to</item>-->
+        <item>Next to</item>
     </string-array>
     <string-array name="pref_battery_percent_values">
         <item>0</item>
         <item>1</item>
-        <!--<item>2</item>-->
+        <item>2</item>
     </string-array>
     <string name="pref_title_quick_qs">One finger quick settings</string>
     <string name="pref_subtitle_quick_qs">Pull down the status bar from the right side to show quick settings</string>

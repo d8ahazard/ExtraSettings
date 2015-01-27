@@ -2,7 +2,7 @@
     <SwitchPreference
         android:key="@string/pref_key_enable_music_controls"
         android:title="@string/pref_title_enable_music_controls"
-        android:defaultValue="false" />
+        android:defaultValue="false"/>
     <ListPreference
         android:dependency="@string/pref_key_enable_music_controls"
         android:key="@string/pref_key_volume_up_action"
@@ -11,7 +11,7 @@
         android:entries="@array/pref_music_controls_button_titles"
         android:entryValues="@array/pref_music_controls_button_values"
         android:negativeButtonText="@null"
-        android:positiveButtonText="@null" />
+        android:positiveButtonText="@null"/>
     <ListPreference
         android:dependency="@string/pref_key_enable_music_controls"
         android:key="@string/pref_key_volume_down_action"
@@ -20,7 +20,7 @@
         android:entries="@array/pref_music_controls_button_titles"
         android:entryValues="@array/pref_music_controls_button_values"
         android:negativeButtonText="@null"
-        android:positiveButtonText="@null" />
+        android:positiveButtonText="@null"/>
     <ListPreference
         android:dependency="@string/pref_key_enable_music_controls"
         android:key="@string/pref_key_music_controls_timeout"
@@ -29,5 +29,5 @@
         android:entries="@array/pref_music_controls_timeout_titles"
         android:entryValues="@array/pref_music_controls_timeout_values"
         android:negativeButtonText="@null"
-        android:positiveButtonText="@null" />
+        android:positiveButtonText="@null"/>
 </PreferenceScreen>
