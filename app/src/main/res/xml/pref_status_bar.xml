@@ -9,6 +9,14 @@
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"/>
     <ListPreference
+        android:key="@string/pref_key_clock_ampm"
+        android:title="@string/pref_title_clock_ampm"
+        android:defaultValue="2"
+        android:entries="@array/pref_clock_ampm_titles"
+        android:entryValues="@array/pref_clock_ampm_values"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"/>
+    <ListPreference
         android:key="@string/pref_key_battery_style"
         android:title="@string/pref_title_battery_style"
         android:defaultValue="0"

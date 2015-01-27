@@ -5,7 +5,7 @@
     <string name="pref_key_volume_up_action">volume_up_action</string>
     <string name="pref_key_volume_down_action">volume_down_action</string>
     <string name="pref_key_music_controls_timeout">music_controls_timeout</string>
-    <string name="pref_key_clock_position">clock_position</string>
+    <string name="pref_key_clock_position">status_bar_clock</string>
     <string name="pref_key_volume_panel_timeout">volume_panel_timeout</string>
     <string name="pref_key_heads_up_enabled">heads_up_notifications_enabled</string>
     <string name="pref_key_heads_up_timeout">heads_up_timeout</string>
@@ -22,6 +22,7 @@
     <string name="pref_key_quick_qs">status_bar_quick_qs_pulldown</string>
     <string name="pref_key_double_tap_sleep">double_tap_sleep_gesture</string>
     <string name="pref_key_navbar_height">navbar_height</string>
+    <string name="pref_key_clock_ampm">status_bar_am_pm</string>
 
     <!--General-->
     <string name="pref_title_ime_notification">Show ime notification</string>
@@ -176,6 +177,17 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+    </string-array>
+    <string name="pref_title_clock_ampm">Clock AM/PM</string>
+    <string-array name="pref_clock_ampm_titles">
+        <item>Normal</item>
+        <item>Small</item>
+        <item>None(default)</item>
+    </string-array>
+    <string-array name="pref_clock_ampm_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
     <string name="pref_title_battery_style">Battery style</string>
     <string-array name="pref_battery_style_titles">
