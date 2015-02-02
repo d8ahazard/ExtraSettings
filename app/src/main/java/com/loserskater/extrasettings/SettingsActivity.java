@@ -74,6 +74,16 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
         getPreferenceScreen().addPreference(fakeHeader);
         addPreferencesFromResource(R.xml.pref_lockscreen);
 
+        fakeHeader = new PreferenceCategory(this);
+        fakeHeader.setTitle(R.string.pref_header_qs);
+        getPreferenceScreen().addPreference(fakeHeader);
+        addPreferencesFromResource(R.xml.pref_qs);
+
+        fakeHeader = new PreferenceCategory(this);
+        fakeHeader.setTitle(R.string.pref_header_network_traffic);
+        getPreferenceScreen().addPreference(fakeHeader);
+        addPreferencesFromResource(R.xml.pref_network_traffic_header);
+
         for (int i = 0; i < getPreferenceScreen().getPreferenceCount(); i++) {
             Preference preference = getPreferenceScreen().getPreference(i);
             if (preference instanceof ListPreference) {
@@ -135,6 +145,8 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
                     AlertDialog alertDialog = dialog.create();
                     alertDialog.show();
                 }
+            } else if (findPreference(key) instanceof SeekBarPreferenceCham){
+
             }
         }
     }

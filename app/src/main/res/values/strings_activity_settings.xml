@@ -23,6 +23,16 @@
     <string name="pref_key_double_tap_sleep">double_tap_sleep_gesture</string>
     <string name="pref_key_navbar_height">navbar_height</string>
     <string name="pref_key_clock_ampm">status_bar_am_pm</string>
+    <string name="pref_key_qs_order">qs_order</string>
+    <string name="pref_key_qs_main_tiles">sysui_qs_main_tiles</string>
+    <string name="pref_key_qs_show_brightness">qs_show_brightness_slider</string>
+    <string name="pref_key_qs_location">qs_location_advanced</string>
+    <string name="pref_key_network_traffic_state">network_traffic_state</string>
+    <string name="pref_key_network_traffic_color">network_traffic_color</string>
+    <string name="pref_key_network_traffic_unit">network_traffic_unit</string>
+    <string name="pref_key_network_traffic_period">network_traffic_period</string>
+    <string name="pref_key_network_traffic_autohide">network_traffic_autohide</string>
+    <string name="pref_key_network_traffic_autohide_threshold">network_traffic_autohide_threshold</string>
 
     <!--General-->
     <string name="pref_title_ime_notification">Show ime notification</string>
@@ -219,4 +229,122 @@
     <string name="pref_subtitle_quick_qs">Pull down the status bar from the right side to show quick settings</string>
     <string name="pref_title_double_tap_sleep">Double tap sleep</string>
     <string name="pref_subtitle_double_tap_sleep">Double tap the status bar to sleep</string>
+
+    <!--QS Tiles from CM-->
+    <string name="pref_header_qs">Quick Settings panel</string>
+
+    <string name="qs_brightness_slider_title">Show brightness slider</string>
+
+    <string name="qs_order_title">Select and order tiles</string>
+    <string name="add_qs">Add new tile</string>
+
+    <string name="qs_action_delete">Delete</string>
+    <string name="qs_action_add">Add</string>
+    <string name="qs_action_no_more_tiles">No more tiles available</string>
+
+    <string name="qs_tile_wifi">Wi\u2011Fi</string>
+    <string name="qs_tile_bluetooth">Bluetooth</string>
+    <string name="qs_tile_display_inversion">Color inversion</string>
+    <string name="qs_tile_cellular_data">Data connection</string>
+    <string name="qs_tile_airplane_mode">Airplane mode</string>
+    <string name="qs_tile_display_rotation">Rotation</string>
+    <string name="qs_tile_flashlight">Flashlight</string>
+    <string name="qs_tile_location">Location</string>
+    <string name="qs_tile_cast_screen">Cast screen</string>
+    <string name="qs_tile_hotspot">Hotspot</string>
+    <string name="qs_tile_adb_over_network">ADB over network</string>
+    <string name="qs_tile_profiles">System profiles</string>
+    <string name="qs_tile_performance">Performance</string>
+    <string name="qs_tile_nfc">NFC</string>
+    <string name="qs_tile_compass">Compass</string>
+    <string name="qs_tile_lockscreen">Lockscreen</string>
+    <string name="qs_tile_lte">LTE</string>
+    <string name="qs_tile_visualizer">AudioFX</string>
+    <string name="qs_tile_screen_timeout">Screen timeout</string>
+
+    <string name="qs_main_tiles_title">Enlarge first row</string>
+    <string name="qs_main_tiles_summary_on">Two main tiles on the first row</string>
+    <string name="qs_main_tiles_summary_off">Three tiles on each row</string>
+
+    <string name="qs_advanced_location_title">Advanced location settings</string>
+    <string name="qs_advanced_location_summary">Enable advanced settings for location in Quick Settings</string>
+
+    <!-- Network traffic -->
+    <string name="pref_header_network_traffic">Network traffic</string>
+    <string name="show_network_traffic_state">Status bar traffic monitor</string>
+    <string name="network_traffic_autohide_threshold">Inactivity threshold</string>
+    <string name="network_traffic_color_style">Color style</string>
+    <string name="network_traffic_color_reset">Reset color</string>
+    <string name="network_traffic_color_reset_message">Reset network traffic color to default?</string>
+    <string name="network_traffic_summary">Enable various network traffic options in statusbar</string>
+    <string name="show_network_traffic_unit">Display unit</string>
+    <string name="show_network_traffic_frequency">Update interval</string>
+    <string name="show_network_traffic_disable">Disabled</string>
+    <string name="show_network_traffic_up">Outgoing</string>
+    <string name="show_network_traffic_down">Incoming</string>
+    <string name="show_network_traffic_all">Outgoing and incoming</string>
+    <string name="show_network_traffic_bit">Bits per second</string>
+    <string name="show_network_traffic_byte">Bytes per second</string>
+    <string name="show_network_traffic_500">500 ms</string>
+    <string name="show_network_traffic_1000">1000 ms</string>
+    <string name="show_network_traffic_1500">1500 ms</string>
+    <string name="show_network_traffic_2000">2000 ms</string>
+    <string name="network_traffic_autohide">Auto hide</string>
+    <string name="network_traffic_autohide_summary">Hide the traffic monitor when there is no activity</string>
+
+    <!-- Network Traffic Display States -->
+    <string-array name="show_network_traffic_state_entries" translatable="false">
+        <item>@string/show_network_traffic_disable</item>
+        <item>@string/show_network_traffic_up</item>
+        <item>@string/show_network_traffic_down</item>
+        <item>@string/show_network_traffic_all</item>
+    </string-array>
+
+    <string-array name="show_network_traffic_state_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <!-- Network Traffic Display Unit -->
+    <string-array name="show_network_traffic_unit_entries" translatable="false">
+        <item>@string/show_network_traffic_bit</item>
+        <item>@string/show_network_traffic_byte</item>
+    </string-array>
+
+    <string-array name="show_network_traffic_unit_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <!-- Network Traffic Period -->
+    <string-array name="show_network_traffic_frequency_entries" translatable="false">
+        <item>@string/show_network_traffic_500</item>
+        <item>@string/show_network_traffic_1000</item>
+        <item>@string/show_network_traffic_1500</item>
+        <item>@string/show_network_traffic_2000</item>
+    </string-array>
+
+    <string-array name="show_network_traffic_frequency_values" translatable="false">
+        <item>500</item>
+        <item>1000</item>
+        <item>1500</item>
+        <item>2000</item>
+    </string-array>
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Press on color below to apply</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#ff000000</string>
+    <string name="set">Set</string>
+    <string name="color_default">Default</string>
+
 </resources>

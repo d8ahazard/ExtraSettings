@@ -19,6 +19,18 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".QSTilesActivity">
+            <intent-filter>
+                <action android:name=".QSTiles" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".NetworkTrafficActivity">
+            <intent-filter>
+                <action android:name=".NetworkTrafficActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

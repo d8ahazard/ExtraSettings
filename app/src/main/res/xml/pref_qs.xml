@@ -1,0 +1,25 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceScreen
+        android:key="@string/pref_key_qs_order"
+        android:title="@string/qs_order_title">
+        <intent android:action=".QSTiles"/>
+    </PreferenceScreen>
+
+    <SwitchPreference
+        android:key="@string/pref_key_qs_main_tiles"
+        android:title="@string/qs_main_tiles_title"
+        android:summaryOn="@string/qs_main_tiles_summary_on"
+        android:summaryOff="@string/qs_main_tiles_summary_off"
+        android:defaultValue="true"/>
+
+    <SwitchPreference
+        android:key="@string/pref_key_qs_show_brightness"
+        android:title="@string/qs_brightness_slider_title"
+        android:defaultValue="true"/>
+
+    <SwitchPreference
+        android:key="@string/pref_key_qs_location"
+        android:title="@string/qs_advanced_location_title"
+        android:summary="@string/qs_advanced_location_summary"
+        android:defaultValue="false"/>
+</PreferenceScreen>
