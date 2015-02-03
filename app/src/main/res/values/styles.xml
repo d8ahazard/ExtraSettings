@@ -2,7 +2,9 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Material.Settings">
-        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Stock" parent="android:Theme.Material.Settings">
     </style>
 
 </resources>
