@@ -34,7 +34,13 @@
     <string name="pref_key_network_traffic_autohide">network_traffic_autohide</string>
     <string name="pref_key_network_traffic_autohide_threshold">network_traffic_autohide_threshold</string>
 
+    <string name="pref_category_title_clock">Clock</string>
+    <string name="pref_category_title_battery">Battery</string>
+    <string name="pref_category_title_heads_up">Heads up</string>
+    <string name="pref_category_title_qs">Quick settings</string>
+
     <!--General-->
+    <string name="pref_header_general">General</string>
     <string name="pref_title_ime_notification">Show ime notification</string>
     <string name="pref_title_volume_panel_timeout">Volume panel timeout</string>
     <string-array name="pref_volume_panel_timeout_titles">

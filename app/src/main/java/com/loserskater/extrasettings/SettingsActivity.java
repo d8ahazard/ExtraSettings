@@ -17,7 +17,9 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
+import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
@@ -49,47 +51,35 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
     private void setupSimplePreferencesScreen() {
         addPreferencesFromResource(R.xml.pref_general);
 
-        PreferenceCategory fakeHeader = new PreferenceCategory(this);
-        fakeHeader.setTitle(R.string.pref_header_status_bar);
-        getPreferenceScreen().addPreference(fakeHeader);
         addPreferencesFromResource(R.xml.pref_status_bar);
 
-        fakeHeader = new PreferenceCategory(this);
-        fakeHeader.setTitle(R.string.pref_header_heads_up);
-        getPreferenceScreen().addPreference(fakeHeader);
-        addPreferencesFromResource(R.xml.pref_heads_up);
-
-        fakeHeader = new PreferenceCategory(this);
-        fakeHeader.setTitle(R.string.pref_header_back_kill);
-        getPreferenceScreen().addPreference(fakeHeader);
-        addPreferencesFromResource(R.xml.pref_back_to_kill);
-
-        fakeHeader = new PreferenceCategory(this);
-        fakeHeader.setTitle(R.string.pref_header_music_controls);
-        getPreferenceScreen().addPreference(fakeHeader);
         addPreferencesFromResource(R.xml.pref_music_controls);
 
-        fakeHeader = new PreferenceCategory(this);
-        fakeHeader.setTitle(R.string.pref_header_lock_screen);
-        getPreferenceScreen().addPreference(fakeHeader);
         addPreferencesFromResource(R.xml.pref_lockscreen);
-
-        fakeHeader = new PreferenceCategory(this);
-        fakeHeader.setTitle(R.string.pref_header_qs);
-        getPreferenceScreen().addPreference(fakeHeader);
-        addPreferencesFromResource(R.xml.pref_qs);
-
-        fakeHeader = new PreferenceCategory(this);
-        fakeHeader.setTitle(R.string.pref_header_network_traffic);
-        getPreferenceScreen().addPreference(fakeHeader);
-        addPreferencesFromResource(R.xml.pref_network_traffic_header);
 
         for (int i = 0; i < getPreferenceScreen().getPreferenceCount(); i++) {
             Preference preference = getPreferenceScreen().getPreference(i);
-            if (preference instanceof ListPreference) {
-                bindPreferenceSummaryToValue(preference);
-            } else if (preference instanceof CheckBoxPreference || preference instanceof Preference) {
-                preference.setOnPreferenceClickListener(this);
+            if (preference instanceof PreferenceScreen) {
+                PreferenceGroup preferenceGroup = (PreferenceGroup) preference;
+                for (int j = 0; j < preferenceGroup.getPreferenceCount(); j++) {
+                    Preference subPreference = preferenceGroup.getPreference(j);
+                    if (subPreference instanceof PreferenceCategory){
+                        PreferenceGroup subPreferenceGroup = (PreferenceGroup) subPreference;
+                        for (int k = 0; k < subPreferenceGroup.getPreferenceCount();k++){
+                            Preference anotherSubPreference = subPreferenceGroup.getPreference(k);
+                            if (anotherSubPreference instanceof ListPreference) {
+                                bindPreferenceSummaryToValue(anotherSubPreference);
+                            } else if (anotherSubPreference instanceof CheckBoxPreference || anotherSubPreference instanceof Preference) {
+                                anotherSubPreference.setOnPreferenceClickListener(this);
+                            }
+                        }
+                    }
+                    if (subPreference instanceof ListPreference) {
+                        bindPreferenceSummaryToValue(subPreference);
+                    } else if (subPreference instanceof CheckBoxPreference || subPreference instanceof Preference) {
+                        subPreference.setOnPreferenceClickListener(this);
+                    }
+                }
             }
         }
     }
@@ -145,19 +135,19 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
                     AlertDialog alertDialog = dialog.create();
                     alertDialog.show();
                 }
-            } else if (findPreference(key) instanceof SeekBarPreferenceCham){
-
             }
         }
     }
 
     @Override
     public boolean onPreferenceClick(Preference preference) {
-        if (preference instanceof CheckBoxPreference) {
-            Settings.System.putInt(getContentResolver(), preference.getKey(), ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
-            return true;
-        } else if (preference.getKey().matches(getString(R.string.pref_key_heads_up_test))) {
-            showNotification();
+        if (preference.getKey() != null) {
+            if (preference instanceof CheckBoxPreference) {
+                Settings.System.putInt(getContentResolver(), preference.getKey(), ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
+                return true;
+            } else if (preference.getKey().matches(getString(R.string.pref_key_heads_up_test))) {
+                showNotification();
+            }
         }
         return false;
     }

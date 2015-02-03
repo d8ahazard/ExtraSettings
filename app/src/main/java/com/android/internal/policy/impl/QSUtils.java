@@ -18,8 +18,6 @@ package com.android.internal.policy.impl;
 
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.hardware.camera2.CameraAccessException;
@@ -72,12 +70,12 @@ public class QSUtils {
                         removeTile = !deviceSupportsCompass(context);
                         break;
                     case QSConstants.TILE_VISUALIZER:
-                        removeTile = !isAudioFXInstalled(context);
-                        break;
+//                        removeTile = !isAudioFXInstalled(context);
+//                        break;
                     case QSConstants.TILE_LTE:
-                    case QSConstants.TILE_SCREEN_TIMEOUT:
                     case QSConstants.TILE_PROFILES:
                     case QSConstants.TILE_PERFORMANCE:
+                    case QSConstants.TILE_LOCKSCREEN:
                         removeTile = true;
                         break;
                 }
@@ -127,13 +125,13 @@ public class QSUtils {
                 && sm.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD) != null;
     }
 
-    private static boolean isAudioFXInstalled(Context context) {
-        PackageManager pm = context.getPackageManager();
-        try {
-            pm.getPackageInfo("org.cyanogenmod.audiofx", PackageManager.GET_ACTIVITIES);
-            return true;
-        } catch (NameNotFoundException e) {
-            return false;
-        }
-    }
+//    private static boolean isAudioFXInstalled(Context context) {
+//        PackageManager pm = context.getPackageManager();
+//        try {
+//            pm.getPackageInfo("org.cyanogenmod.audiofx", PackageManager.GET_ACTIVITIES);
+//            return true;
+//        } catch (NameNotFoundException e) {
+//            return false;
+//        }
+//    }
 }
