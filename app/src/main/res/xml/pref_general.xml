@@ -42,5 +42,17 @@
             android:entryValues="@array/pref_back_kill_timeout_values"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"/>
+        <CheckBoxPreference
+            android:key="@string/pref_key_navbar_arrow_keys"
+            android:title="@string/navigation_bar_arrow_keys_title"
+            android:defaultValue="false" />
+        <PreferenceScreen
+            android:title="@string/navigation_bar_header">
+            <intent android:action=".Navbar"/>
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:title="@string/navigation_ring_title">
+            <intent android:action=".NavbarRing"/>
+        </PreferenceScreen>
     </PreferenceScreen>
 </PreferenceScreen>

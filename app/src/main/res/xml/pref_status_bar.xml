@@ -6,6 +6,10 @@
             android:title="@string/pref_title_show_alarm_icon"
             android:defaultValue="true"/>
         <CheckBoxPreference
+            android:key="@string/pref_key_statusbar_weather"
+            android:title="@string/pref_title_show_weather"
+            android:defaultValue="true"/>
+        <CheckBoxPreference
             android:key="@string/pref_key_double_tap_sleep"
             android:title="@string/pref_title_double_tap_sleep"
             android:summary="@string/pref_subtitle_double_tap_sleep"

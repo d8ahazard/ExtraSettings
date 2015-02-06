@@ -16,14 +16,7 @@
 
 package com.android.internal.policy.impl;
 
-import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
-import android.hardware.camera2.CameraAccessException;
-import android.hardware.camera2.CameraCharacteristics;
-import android.hardware.camera2.CameraManager;
-import android.nfc.NfcAdapter;
 import android.text.TextUtils;
 
 import java.util.Iterator;
@@ -57,18 +50,6 @@ public class QSUtils {
                 String tileKey = iterator.next();
                 boolean removeTile = false;
                 switch (tileKey) {
-                    case QSConstants.TILE_FLASHLIGHT:
-                        removeTile = !deviceSupportsFlashLight(context);
-                        break;
-                    case QSConstants.TILE_BLUETOOTH:
-                        removeTile = !deviceSupportsBluetooth();
-                        break;
-                    case QSConstants.TILE_NFC:
-                        removeTile = !deviceSupportsNfc(context);
-                        break;
-                    case QSConstants.TILE_COMPASS:
-                        removeTile = !deviceSupportsCompass(context);
-                        break;
                     case QSConstants.TILE_VISUALIZER:
 //                        removeTile = !isAudioFXInstalled(context);
 //                        break;
@@ -87,42 +68,6 @@ public class QSUtils {
 
             sAvailableTilesFiltered = true;
         }
-    }
-
-    public static boolean deviceSupportsBluetooth() {
-        return BluetoothAdapter.getDefaultAdapter() != null;
-    }
-
-    public static boolean deviceSupportsNfc(Context context) {
-        return NfcAdapter.getDefaultAdapter(context) != null;
-    }
-
-    public static boolean deviceSupportsFlashLight(Context context) {
-        CameraManager cameraManager = (CameraManager) context.getSystemService(
-                Context.CAMERA_SERVICE);
-        try {
-            String[] ids = cameraManager.getCameraIdList();
-            for (String id : ids) {
-                CameraCharacteristics c = cameraManager.getCameraCharacteristics(id);
-                Boolean flashAvailable = c.get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
-                Integer lensFacing = c.get(CameraCharacteristics.LENS_FACING);
-                if (flashAvailable != null
-                        && flashAvailable
-                        && lensFacing != null
-                        && lensFacing == CameraCharacteristics.LENS_FACING_BACK) {
-                    return true;
-                }
-            }
-        } catch (CameraAccessException e) {
-            // Ignore
-        }
-        return false;
-    }
-
-    public static boolean deviceSupportsCompass(Context context) {
-        SensorManager sm = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
-        return sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null
-                && sm.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD) != null;
     }
 
 //    private static boolean isAudioFXInstalled(Context context) {

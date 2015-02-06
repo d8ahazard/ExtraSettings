@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.loserskater.extrasettings" >
+    package="com.loserskater.extrasettings"
+    android:sharedUserId="android.uid.system">
 
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
@@ -28,6 +29,18 @@
         <activity android:name=".NetworkTrafficActivity">
             <intent-filter>
                 <action android:name=".NetworkTrafficActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".NavBarActivity" android:theme="@style/Stock">
+            <intent-filter>
+                <action android:name=".Navbar" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".NavRingActivity" android:theme="@style/Stock">
+            <intent-filter>
+                <action android:name=".NavbarRing" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
