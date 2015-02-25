@@ -44,7 +44,7 @@
     </string-array>
     <string name="pref_key_volume_panel_sounds">volume_adjust_sounds_enabled</string>
     <string name="pref_key_density">density</string>
-    <string name="pref_key_ticker">show_ticker</string>
+    <string name="pref_key_ticker">enable_ticker</string>
     <string name="pref_key_long_press_recents">long_press_recents</string>
     <string name="pref_key_lock_screen_double_tap_sleep">double_tap_sleep</string>
     <string name="pref_key_show_search_bar">recents_show_search_bar</string>

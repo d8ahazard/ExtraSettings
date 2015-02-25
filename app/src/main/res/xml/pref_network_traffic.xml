@@ -40,7 +40,7 @@
         android:entryValues="@array/show_network_traffic_frequency_values"
         android:dependency="network_traffic_state"
         android:persistent="false"/>
-    <SwitchPreference
+    <CheckBoxPreference
         android:key="@string/pref_key_network_traffic_autohide"
         android:title="@string/network_traffic_autohide"
         android:summary="@string/network_traffic_autohide_summary"
