@@ -1,14 +1,19 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceScreen
-        android:title="@string/pref_header_lock_screen">
-        <CheckBoxPreference
+        android:title="@string/pref_header_lock_screen"
+        android:icon="@drawable/ic_lockscreen">
+        <SwitchPreference
             android:key="@string/pref_key_quick_unlock"
             android:title="@string/pref_title_quick_unlock"
             android:defaultValue="false"/>
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="@string/pref_key_scramble_pin"
             android:title="@string/pref_title_scramble_pin"
             android:defaultValue="false"/>
+        <SwitchPreference
+            android:key="@string/pref_key_lock_screen_double_tap_sleep"
+            android:title="@string/pref_title_double_tap_sleep"
+            android:defaultValue="true"/>
         <PreferenceScreen
             android:title="@string/lockscreen_targets_message">
             <intent android:action=".LockscreenShortcutsActivity"/>

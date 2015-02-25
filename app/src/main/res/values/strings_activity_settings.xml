@@ -21,8 +21,9 @@
     <string name="pref_key_volume_cursor">volume_key_cursor_control</string>
     <string name="pref_key_quick_qs">status_bar_quick_qs_pulldown</string>
     <string name="pref_key_double_tap_sleep">double_tap_sleep_gesture</string>
-    <string name="pref_key_navbar_height">navbar_height</string>
+    <string name="pref_key_navbar_height">navigation_bar_height</string>
     <string name="pref_key_clock_ampm">status_bar_am_pm</string>
+    <string name="pref_key_clock_dow">status_bar_dow</string>
     <string name="pref_key_qs_order">qs_order</string>
     <string name="pref_key_qs_main_tiles">sysui_qs_main_tiles</string>
     <string name="pref_key_qs_show_brightness">qs_show_brightness_slider</string>
@@ -41,14 +42,43 @@
         <item>navigation_ring_targets_1</item>
         <item>navigation_ring_targets_2</item>
     </string-array>
+    <string name="pref_key_volume_panel_sounds">volume_adjust_sounds_enabled</string>
+    <string name="pref_key_density">density</string>
+    <string name="pref_key_ticker">show_ticker</string>
+    <string name="pref_key_long_press_recents">long_press_recents</string>
+    <string name="pref_key_lock_screen_double_tap_sleep">double_tap_sleep</string>
+    <string name="pref_key_show_search_bar">recents_show_search_bar</string>
+    <string name="pref_key_show_clear_all_recents">show_clear_all_recents</string>
+    <string name="pref_key_clear_all_recents_location">recents_clear_all_location</string>
+
 
     <string name="pref_category_title_clock">Clock</string>
     <string name="pref_category_title_battery">Battery</string>
     <string name="pref_category_title_heads_up">Heads up</string>
     <string name="pref_category_title_qs">Quick settings</string>
+    <string name="pref_category_title_recents">Recents</string>
 
     <!--General-->
-    <string name="pref_header_general">General</string>
+    <string name="pref_header_display">Display</string>
+    <string name="pref_title_show_clear_recents">Show clear all recents button</string>
+    <string name="pref_title_clear_recents_location">Location of clear all button</string>
+    <string-array name="pref_clear_all_location_titles">
+        <item>Top right</item>
+        <item>Top left</item>
+        <item>Top center</item>
+        <item>Bottom right(default)</item>
+        <item>Bottom left</item>
+        <item>Bottom center</item>
+    </string-array>
+    <string-array name="pref_clear_all_location_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string name="pref_title_show_search_bar">Show search bar</string>
     <string name="pref_title_ime_notification">Show ime notification</string>
     <string name="pref_title_volume_panel_timeout">Volume panel timeout</string>
     <string-array name="pref_volume_panel_timeout_titles">
@@ -77,20 +107,49 @@
         <item>2</item>
     </string-array>
     <string name="pref_title_navbar_height">Navigation bar height</string>
+    <string name="pref_title_navbar_height_land">Navigation bar height in landscape</string>
     <string-array name="pref_navbar_height_titles">
+        <item>24</item>
+        <item>30</item>
         <item>32</item>
         <item>36</item>
+        <item>40</item>
         <item>42</item>
+        <item>44</item>
         <item>48(default)</item>
     </string-array>
     <string-array name="pref_navbar_height_values">
+        <item>72</item>
+        <item>90</item>
         <item>96</item>
         <item>108</item>
+        <item>120</item>
         <item>126</item>
+        <item>132</item>
         <item>144</item>
+    </string-array>
+    <string name="pref_title_volume_panel_sounds">Play sound when changing volume</string>
+    <string name="pref_header_navigation_bar">Navigation bar</string>
+    <string name="pref_title_density">Screen density (DPI)</string>
+    <string-array name="pref_density_titles">
+        <item>360</item>
+        <item>380</item>
+        <item>400</item>
+        <item>420</item>
+        <item>440</item>
+        <item>480(default)</item>
+    </string-array>
+    <string-array name="pref_density_values">
+        <item>360</item>
+        <item>380</item>
+        <item>400</item>
+        <item>420</item>
+        <item>440</item>
+        <item>480</item>
     </string-array>
 
     <!--Music Controls-->
+    <string name="pref_header_volume_buttons">Volume buttons</string>
     <string name="pref_header_music_controls">Music controls</string>
     <string name="pref_title_enable_music_controls">Enable music controls</string>
     <string name="pref_title_music_controls_volume_up_action">Volume up action</string>
@@ -151,9 +210,10 @@
         <item>10000</item>
     </string-array>
 
-    <!--Back to kill-->
-    <string name="pref_header_back_kill">Back to kill</string>
-    <string name="pref_title_enable_back_kill">Long press back to kill app</string>
+    <string name="pref_title_long_press_recents">Long press recents</string>
+    <string name="pref_summary_long_press_recents">Switches to last used app</string>
+    <string name="pref_title_long_press_back">Long press back</string>
+    <string name="pref_summary_long_press_back">Kills current app</string>
     <string name="pref_title_back_kill_timeout">Long press timeout</string>
     <string-array name="pref_back_kill_timeout_titles">
         <item>.5s</item>
@@ -204,13 +264,14 @@
         <item>2</item>
         <item>3</item>
     </string-array>
-    <string name="pref_title_clock_ampm">Clock AM/PM</string>
-    <string-array name="pref_clock_ampm_titles">
+    <string name="pref_title_clock_ampm">AM/PM style</string>
+    <string name="pref_title_clock_dow">Day-of-week style</string>
+    <string-array name="pref_clock_titles">
         <item>Normal</item>
         <item>Small</item>
         <item>None(default)</item>
     </string-array>
-    <string-array name="pref_clock_ampm_values">
+    <string-array name="pref_clock_values">
         <item>0</item>
         <item>1</item>
         <item>2</item>
@@ -370,6 +431,7 @@
     <string name="navigation_save_button_text">Save</string>
     <string name="navigation_bar_reset_message">Delete current settings and restore the default layout?</string>
     <string name="navigation_bar_arrow_keys_title">Show arrow keys on navbar while typing</string>
+    <string name="navigation_bar_arrow_keys_summary">Hides ime notification</string>
     <string name="profile_reset_title">Reset</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
@@ -377,4 +439,5 @@
     <string name="navigation_ring_title">Navigation ring targets</string>
     <string name="navigation_ring_message">Tap the edit icon to open the navigation ring for editing.\n\nSelect a target to configure its behavior.\n\nTap the check mark icon to save your changes, or restore to reset the settings to defaults.</string>
 
+    <string name="pref_title_enable_ticker">Enable ticker</string>
 </resources>

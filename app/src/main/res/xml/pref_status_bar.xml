@@ -1,15 +1,16 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceScreen
-        android:title="@string/pref_header_status_bar">
-        <CheckBoxPreference
+        android:title="@string/pref_header_status_bar"
+        android:icon="@drawable/ic_statusbar_fancy">
+        <SwitchPreference
             android:key="@string/pref_key_show_alarm_icon"
             android:title="@string/pref_title_show_alarm_icon"
             android:defaultValue="true"/>
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="@string/pref_key_statusbar_weather"
             android:title="@string/pref_title_show_weather"
             android:defaultValue="true"/>
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="@string/pref_key_double_tap_sleep"
             android:title="@string/pref_title_double_tap_sleep"
             android:summary="@string/pref_subtitle_double_tap_sleep"
@@ -18,6 +19,10 @@
             android:title="@string/pref_header_network_traffic">
             <intent android:action=".NetworkTrafficActivity"/>
         </PreferenceScreen>
+        <SwitchPreference
+            android:key="@string/pref_key_ticker"
+            android:title="@string/pref_title_enable_ticker"
+            android:defaultValue="false"/>
         <PreferenceCategory
             android:title="@string/pref_category_title_clock">
             <ListPreference
@@ -32,8 +37,16 @@
                 android:key="@string/pref_key_clock_ampm"
                 android:title="@string/pref_title_clock_ampm"
                 android:defaultValue="2"
-                android:entries="@array/pref_clock_ampm_titles"
-                android:entryValues="@array/pref_clock_ampm_values"
+                android:entries="@array/pref_clock_titles"
+                android:entryValues="@array/pref_clock_values"
+                android:negativeButtonText="@null"
+                android:positiveButtonText="@null"/>
+            <ListPreference
+                android:key="@string/pref_key_clock_dow"
+                android:title="@string/pref_title_clock_dow"
+                android:defaultValue="2"
+                android:entries="@array/pref_clock_titles"
+                android:entryValues="@array/pref_clock_values"
                 android:negativeButtonText="@null"
                 android:positiveButtonText="@null"/>
         </PreferenceCategory>
@@ -96,7 +109,7 @@
                 android:title="@string/qs_advanced_location_title"
                 android:summary="@string/qs_advanced_location_summary"
                 android:defaultValue="false"/>
-            <CheckBoxPreference
+            <SwitchPreference
                 android:key="@string/pref_key_quick_qs"
                 android:title="@string/pref_title_quick_qs"
                 android:summary="@string/pref_subtitle_quick_qs"
