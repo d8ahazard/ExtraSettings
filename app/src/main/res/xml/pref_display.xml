@@ -10,6 +10,12 @@
             android:entryValues="@array/pref_density_values"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"/>
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="@string/pref_key_battery_save_mode_color"
+            android:title="@string/battery_saver_title"
+            android:summary="@string/battery_saver_summary"
+            android:defaultValue="0xf4511e"
+            alphaSlider="true"/>
         <PreferenceCategory
             android:title="@string/pref_category_title_recents">
             <SwitchPreference
@@ -28,6 +34,6 @@
                 android:entryValues="@array/pref_clear_all_location_values"
                 android:negativeButtonText="@null"
                 android:positiveButtonText="@null"/>
-            </PreferenceCategory>
+        </PreferenceCategory>
     </PreferenceScreen>
 </PreferenceScreen>

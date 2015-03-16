@@ -110,10 +110,18 @@
                 android:summary="@string/qs_advanced_location_summary"
                 android:defaultValue="false"/>
             <SwitchPreference
+                android:key="@string/pref_key_quick_settings_collapse_panel"
+                android:title="@string/quick_settings_collapse_title"
+                android:summary="@string/quick_settings_collapse_summary"
+                android:defaultValue="false"/>
+            <ListPreference
                 android:key="@string/pref_key_quick_qs"
                 android:title="@string/pref_title_quick_qs"
-                android:summary="@string/pref_subtitle_quick_qs"
-                android:defaultValue="true"/>
+                android:defaultValue="1"
+                android:entries="@array/pref_quick_qs_titles"
+                android:entryValues="@array/pref_quick_qs_values"
+                android:negativeButtonText="@null"
+                android:positiveButtonText="@null"/>
         </PreferenceCategory>
     </PreferenceScreen>
 </PreferenceScreen>

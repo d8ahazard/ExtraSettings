@@ -14,6 +14,10 @@
             android:key="@string/pref_key_lock_screen_double_tap_sleep"
             android:title="@string/pref_title_double_tap_sleep"
             android:defaultValue="true"/>
+        <SwitchPreference
+            android:key="@string/pref_key_lockscreen_visualizer"
+            android:title="@string/lockscreen_visualizer_title"
+            android:defaultValue="true"/>
         <PreferenceScreen
             android:title="@string/lockscreen_targets_message">
             <intent android:action=".LockscreenShortcutsActivity"/>

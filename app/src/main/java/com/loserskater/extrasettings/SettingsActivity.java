@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.PowerManager;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
@@ -24,10 +25,13 @@ import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
 
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 import eu.chainfire.libsuperuser.Shell;
 
 
-public class SettingsActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
+public class SettingsActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener, OnPreferenceChangeListener {
+
 
     @Override
     protected void onResume() {
@@ -73,14 +77,17 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
                             Preference anotherSubPreference = subPreferenceGroup.getPreference(k);
                             if (anotherSubPreference instanceof ListPreference) {
                                 bindPreferenceSummaryToValue(anotherSubPreference);
-                            } else if (anotherSubPreference instanceof Preference) {
+                            } else {
                                 anotherSubPreference.setOnPreferenceClickListener(this);
                             }
                         }
                     }
                     if (subPreference instanceof ListPreference) {
                         bindPreferenceSummaryToValue(subPreference);
-                    } else if (subPreference instanceof Preference) {
+                    } else if (subPreference instanceof ColorPickerPreference) {
+                        subPreference.setOnPreferenceChangeListener(this);
+                        initColorPicker((ColorPickerPreference) subPreference);
+                    } else {
                         subPreference.setOnPreferenceClickListener(this);
                     }
                 }
@@ -188,5 +195,25 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
                 });
         AlertDialog alertDialog = dialog.create();
         alertDialog.show();
+    }
+
+    private void initColorPicker(ColorPickerPreference preference) {
+        int intColor = Settings.System.getInt(getContentResolver(),
+                getString(R.string.pref_key_battery_save_mode_color), -2);
+        preference.setNewPreviewColor(intColor);
+
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference.getKey().matches(getString(R.string.pref_key_battery_save_mode_color))) {
+                        String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String
+                                        .valueOf(newValue)));
+                        int intHex = ColorPickerPreference.convertToColorInt(hex);
+                        Settings.System.putInt(getContentResolver(),
+                                        getString(R.string.pref_key_battery_save_mode_color), intHex);
+                        return true;
+                    }
+                return false;
     }
 }

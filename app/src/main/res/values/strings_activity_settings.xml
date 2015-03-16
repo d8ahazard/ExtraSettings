@@ -19,12 +19,13 @@
     <string name="pref_key_battery_style">status_bar_battery_style</string>
     <string name="pref_key_battery_percent">status_bar_show_battery_percent</string>
     <string name="pref_key_volume_cursor">volume_key_cursor_control</string>
-    <string name="pref_key_quick_qs">status_bar_quick_qs_pulldown</string>
+    <string name="pref_key_quick_qs">qs_quick_pulldown</string>
     <string name="pref_key_double_tap_sleep">double_tap_sleep_gesture</string>
     <string name="pref_key_navbar_height">navigation_bar_height</string>
     <string name="pref_key_clock_ampm">status_bar_am_pm</string>
     <string name="pref_key_clock_dow">status_bar_dow</string>
     <string name="pref_key_qs_order">qs_order</string>
+    <string name="pref_key_qs_tiles">sysui_qs_tiles</string>
     <string name="pref_key_qs_main_tiles">sysui_qs_main_tiles</string>
     <string name="pref_key_qs_show_brightness">qs_show_brightness_slider</string>
     <string name="pref_key_qs_location">qs_location_advanced</string>
@@ -50,6 +51,9 @@
     <string name="pref_key_show_search_bar">recents_show_search_bar</string>
     <string name="pref_key_show_clear_all_recents">show_clear_all_recents</string>
     <string name="pref_key_clear_all_recents_location">recents_clear_all_location</string>
+    <string name="pref_key_battery_save_mode_color">battery_save_mode_color</string>
+    <string name="pref_key_quick_settings_collapse_panel">quick_settings_collapse_panel</string>
+    <string name="pref_key_lockscreen_visualizer">lockscreen_visualizer</string>
 
 
     <string name="pref_category_title_clock">Clock</string>
@@ -303,7 +307,16 @@
         <item>2</item>
     </string-array>
     <string name="pref_title_quick_qs">One finger quick settings</string>
-    <string name="pref_subtitle_quick_qs">Pull down the status bar from the right side to show quick settings</string>
+    <string-array name="pref_quick_qs_titles">
+        <item>Disabled</item>
+        <item>Right(default)</item>
+        <item>Left</item>
+    </string-array>
+    <string-array name="pref_quick_qs_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
     <string name="pref_title_double_tap_sleep">Double tap sleep</string>
     <string name="pref_subtitle_double_tap_sleep">Double tap the status bar to sleep</string>
 
@@ -330,14 +343,31 @@
     <string name="qs_tile_cast_screen">Cast screen</string>
     <string name="qs_tile_hotspot">Hotspot</string>
     <string name="qs_tile_adb_over_network">ADB over network</string>
+    <string name="qs_tile_notifications">Notifications</string>
     <string name="qs_tile_profiles">System profiles</string>
-    <string name="qs_tile_performance">Performance</string>
+    <string name="qs_tiles_profiles">profiles</string>
+    <string name="qs_tile_performance">Battery mode</string>
     <string name="qs_tile_nfc">NFC</string>
     <string name="qs_tile_compass">Compass</string>
-    <string name="qs_tile_lockscreen">Lockscreen</string>
+    <string name="qs_title_profiles">System profiles</string>
+    <string name="qs_title_nfc">NFC</string>
+    <string name="qs_title_compass">Compass</string>
+    <string name="qs_tile_lockscreen">Lock screen</string>
     <string name="qs_tile_lte">LTE</string>
-    <string name="qs_tile_visualizer">AudioFX</string>
+    <string name="qs_tile_visualizer" translatable="false">AudioFX</string>
     <string name="qs_tile_screen_timeout">Screen timeout</string>
+    <string name="qs_screenshot_tile">Screenshot</string>
+    <string name="qs_sync_tile">Sync</string>
+    <string name="qs_tile_headsup">Heads Up</string>
+    <string name="qs_tile_powermenu">Power Menu</string>
+    <string name="qs_battery_saver_tile">Battery saver</string>
+    <string name="qs_brightness_tile">Brightness</string>
+    <string name="qs_expanded_desktop_tile">Expanded desktop</string>
+    <string name="qs_screen_off_tile">Screen off</string>
+    <string name="qs_navbar_tile">Navigation Bar</string>
+    <string name="qs_appcirclebar_tile">App Circle Bar</string>
+    <string name="qs_tile_reboot">Reboot</string>
+    <string name="qs_tiles_reboot">reboot</string>
 
     <string name="qs_main_tiles_title">Enlarge first row</string>
     <string name="qs_main_tiles_summary_on">Two main tiles on the first row</string>
@@ -440,4 +470,12 @@
     <string name="navigation_ring_message">Tap the edit icon to open the navigation ring for editing.\n\nSelect a target to configure its behavior.\n\nTap the check mark icon to save your changes, or restore to reset the settings to defaults.</string>
 
     <string name="pref_title_enable_ticker">Enable ticker</string>
+    <string name="battery_saver_title">Power saver color</string>
+    <string name="battery_saver_summary">Status and nav bar color when enabled</string>
+    <string name="default_string">Default</string>
+    <string name="quick_settings_collapse_title">Auto close panel</string>
+    <string name="quick_settings_collapse_summary">Close panel after tile is toggled</string>
+    <string name="lockscreen_visualizer_title">Display music visualizer</string>
+    <string name="kang">digitalhigh</string>
+    <string name="owner">loserskater</string>
 </resources>

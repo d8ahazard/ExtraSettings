@@ -38,6 +38,7 @@ public class QSConstants {
     public static final String TILE_APN = "apn";
     public static final String TILE_PROFILES = "profiles";
     public static final String TILE_PERFORMANCE = "performance";
+    public static final String TILE_POWERMENU = "togglePowerMenu";
     public static final String TILE_ADB_NETWORK = "adb_network";
     public static final String TILE_NFC = "nfc";
     public static final String TILE_COMPASS = "compass";
@@ -45,6 +46,16 @@ public class QSConstants {
     public static final String TILE_LTE = "lte";
     public static final String TILE_VISUALIZER = "visualizer";
     public static final String TILE_SCREEN_TIMEOUT = "screen_timeout";
+    public static final String TILE_SCREENSHOT = "screenshot";
+    public static final String TILE_SYNC = "sync";
+    public static final String TILE_HEADS_UP = "toggleHeadsUp";
+    public static final String TILE_BATTERY_SAVER = "battery_saver";
+    public static final String TILE_BRIGHTNESS = "brightness";
+    public static final String TILE_EXPANDED_DESKTOP = "expanded_desktop";
+    public static final String TILE_SCREEN_OFF = "screen_off";
+    public static final String TILE_NAVBAR = "toggleNavBar";
+    public static final String TILE_APPCIRCLEBAR = "toggleAppCircleBar";
+    public static final String TILE_REBOOT = "reboot";
 
     // Order matters
     protected static final ArrayList<String> TILES_DEFAULT = new ArrayList<String>();
@@ -73,6 +84,7 @@ public class QSConstants {
         TILES_AVAILABLE.add(TILE_APN);
         TILES_AVAILABLE.add(TILE_PROFILES);
         TILES_AVAILABLE.add(TILE_PERFORMANCE);
+        TILES_AVAILABLE.add(TILE_POWERMENU);
         TILES_AVAILABLE.add(TILE_ADB_NETWORK);
         TILES_AVAILABLE.add(TILE_NFC);
         TILES_AVAILABLE.add(TILE_COMPASS);
@@ -80,5 +92,15 @@ public class QSConstants {
         TILES_AVAILABLE.add(TILE_LTE);
         TILES_AVAILABLE.add(TILE_VISUALIZER);
         TILES_AVAILABLE.add(TILE_SCREEN_TIMEOUT);
+        TILES_AVAILABLE.add(TILE_SCREENSHOT);
+        TILES_AVAILABLE.add(TILE_SYNC);
+        TILES_AVAILABLE.add(TILE_HEADS_UP);
+        TILES_AVAILABLE.add(TILE_BATTERY_SAVER);
+        TILES_AVAILABLE.add(TILE_BRIGHTNESS);
+        TILES_AVAILABLE.add(TILE_EXPANDED_DESKTOP);
+        TILES_AVAILABLE.add(TILE_SCREEN_OFF);
+        TILES_AVAILABLE.add(TILE_NAVBAR);
+        TILES_AVAILABLE.add(TILE_APPCIRCLEBAR);
+        TILES_AVAILABLE.add(TILE_REBOOT);
     }
 }

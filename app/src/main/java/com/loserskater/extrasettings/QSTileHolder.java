@@ -16,10 +16,9 @@
 package com.loserskater.extrasettings;
 
 import android.content.Context;
-import android.text.TextUtils;
 
-import com.android.internal.policy.impl.QSUtils;
 import com.android.internal.policy.impl.QSConstants;
+import com.android.internal.policy.impl.QSUtils;
 
 /**
  * This class holds the icon, the name - or the string the user sees,
@@ -94,6 +93,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_network_adb_on";
                 stringId = R.string.qs_tile_adb_over_network;
                 break;
+            case QSConstants.TILE_NOTIFICATIONS:
+                resourceName = "ic_qs_zen_on";
+                stringId = R.string.qs_tile_notifications;
+                break;
             case QSConstants.TILE_LTE:
                 resourceName = "ic_qs_lte_on";
                 stringId = R.string.qs_tile_lte;
@@ -105,6 +108,10 @@ public class QSTileHolder {
             case QSConstants.TILE_PERFORMANCE:
                 resourceName = "ic_qs_perf_profile_highperf_avd";
                 stringId = R.string.qs_tile_performance;
+                break;
+            case QSConstants.TILE_POWERMENU:
+                resourceName = "ic_qs_powermenu";
+                stringId = R.string.qs_tile_powermenu;
                 break;
             case QSConstants.TILE_NFC:
                 resourceName = "ic_qs_nfc_on";
@@ -125,6 +132,46 @@ public class QSTileHolder {
             case QSConstants.TILE_SCREEN_TIMEOUT:
                 resourceName = "ic_qs_screen_timeout_vector";
                 stringId = R.string.qs_tile_screen_timeout;
+                break;
+            case QSConstants.TILE_SCREENSHOT:
+                resourceName = "ic_qs_screenshot";
+                stringId = R.string.qs_screenshot_tile;
+                break;
+            case QSConstants.TILE_SYNC:
+                resourceName = "ic_qs_sync_on";
+                stringId = R.string.qs_sync_tile;
+                break;
+            case QSConstants.TILE_HEADS_UP:
+                resourceName = "ic_qs_heads_up_on";
+                stringId = R.string.qs_tile_headsup;
+                break;
+            case QSConstants.TILE_BATTERY_SAVER:
+                resourceName = "ic_qs_battery_saver_on";
+                stringId = R.string.qs_battery_saver_tile;
+                break;
+            case QSConstants.TILE_BRIGHTNESS:
+                resourceName = "ic_qs_brightness_auto_off";
+                stringId = R.string.qs_brightness_tile;
+                break;
+            case QSConstants.TILE_EXPANDED_DESKTOP:
+                resourceName = "ic_qs_expanded_desktop";
+                stringId = R.string.qs_expanded_desktop_tile;
+                break;
+            case QSConstants.TILE_SCREEN_OFF:
+                resourceName = "ic_qs_screen_off";
+                stringId = R.string.qs_screen_off_tile;
+                break;
+            case QSConstants.TILE_NAVBAR:
+                resourceName = "ic_qs_navbar_on";
+                stringId = R.string.qs_navbar_tile;
+                break;
+            case QSConstants.TILE_APPCIRCLEBAR:
+                resourceName = "ic_qs_appcirclebar_on";
+                stringId = R.string.qs_appcirclebar_tile;
+                break;
+            case QSConstants.TILE_REBOOT:
+                resourceName = "ic_qs_reboot";
+                stringId = R.string.qs_tile_reboot;
                 break;
             default:
                 return null;
