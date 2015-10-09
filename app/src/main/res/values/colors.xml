@@ -2,4 +2,5 @@
 <resources>
     <color name="qs_tile_tint_color">#FF009587</color>
     <color name="battery_saver_mode_color">#fff4511e</color>
+    <color name="blue_grey_900">#263238</color>
 </resources>

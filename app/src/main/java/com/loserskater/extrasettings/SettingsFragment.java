@@ -16,8 +16,8 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
+import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
@@ -25,36 +25,31 @@ import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
 
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
-
 import eu.chainfire.libsuperuser.Shell;
 
 
-public class SettingsActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener, OnPreferenceChangeListener {
+public class SettingsFragment extends PreferenceFragment implements OnSharedPreferenceChangeListener, OnPreferenceClickListener, OnPreferenceChangeListener {
+
+    private SharedPreferences sharedPreferences;
+
 
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
-        getPreferenceScreen().getSharedPreferences()
-                .registerOnSharedPreferenceChangeListener(this);
+        sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
-        getPreferenceScreen().getSharedPreferences()
-                .unregisterOnSharedPreferenceChangeListener(this);
+        sharedPreferences.unregisterOnSharedPreferenceChangeListener(this);
     }
+
 
     @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-
-        setupSimplePreferencesScreen();
-    }
-
-    private void setupSimplePreferencesScreen() {
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.pref_display);
 
         addPreferencesFromResource(R.xml.pref_status_bar);
@@ -64,6 +59,7 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
         addPreferencesFromResource(R.xml.pref_volume_buttons);
 
         addPreferencesFromResource(R.xml.pref_lockscreen);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
         for (int i = 0; i < getPreferenceScreen().getPreferenceCount(); i++) {
             Preference preference = getPreferenceScreen().getPreference(i);
@@ -84,16 +80,16 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
                     }
                     if (subPreference instanceof ListPreference) {
                         bindPreferenceSummaryToValue(subPreference);
-                    } else if (subPreference instanceof ColorPickerPreference) {
-                        subPreference.setOnPreferenceChangeListener(this);
-                        initColorPicker((ColorPickerPreference) subPreference);
                     } else {
                         subPreference.setOnPreferenceClickListener(this);
                     }
                 }
             }
         }
+
+
     }
+
 
     private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
         @Override
@@ -128,14 +124,14 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.matches(getString(R.string.pref_key_heads_up_enabled))) {
-            Settings.Global.putInt(getContentResolver(), key, sharedPreferences.getBoolean(key, false) ? 1 : 0);
+            Settings.Global.putInt(getActivity().getContentResolver(), key, sharedPreferences.getBoolean(key, false) ? 1 : 0);
         } else if (key.matches(getString(R.string.pref_key_density))) {
             setLcdDensity(sharedPreferences.getString(key, ""));
         } else {
             if (findPreference(key) instanceof SwitchPreference) {
-                Settings.System.putInt(getContentResolver(), key, sharedPreferences.getBoolean(key, false) ? 1 : 0);
+                Settings.System.putInt(getActivity().getContentResolver(), key, sharedPreferences.getBoolean(key, false) ? 1 : 0);
             } else if (findPreference(key) instanceof ListPreference) {
-                Settings.System.putString(getContentResolver(), key, sharedPreferences.getString(key, ""));
+                Settings.System.putString(getActivity().getContentResolver(), key, sharedPreferences.getString(key, ""));
             }
         }
     }
@@ -150,21 +146,20 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
         return false;
     }
 
-    private int mId = 0;
-
     private void showNotification() {
         NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this)
+                new NotificationCompat.Builder(getActivity())
                         .setSmallIcon(R.drawable.ic_launcher)
                                 //Should move these to strings.xml but I doubt I'll need translations so I'll keep it this way for now.
                         .setContentTitle("TEST")
                         .setContentText("Testing heads up.")
-                        .setContentIntent(PendingIntent.getActivity(this, 0, new Intent(), 0))
+                        .setContentIntent(PendingIntent.getActivity(getActivity(), 0, new Intent(), 0))
                         .setPriority(NotificationCompat.PRIORITY_MAX)
                         .setAutoCancel(true)
                         .setDefaults(Notification.DEFAULT_SOUND);
         NotificationManager mNotificationManager =
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        int mId = 0;
         mNotificationManager.notify(mId, mBuilder.build());
     }
 
@@ -177,7 +172,7 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
     }
 
     private void showDialog() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
         dialog.setMessage("You must reboot in order for these changes to take effect.")
                 .setPositiveButton("Later", new OnClickListener() {
                     @Override
@@ -188,7 +183,7 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
                 .setNegativeButton("Now", new OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        PowerManager pm = (PowerManager) SettingsActivity.this
+                        PowerManager pm = (PowerManager) getActivity()
                                 .getSystemService(Context.POWER_SERVICE);
                         pm.reboot("Resetting density");
                     }
@@ -197,21 +192,14 @@ public class SettingsActivity extends PreferenceActivity implements OnSharedPref
         alertDialog.show();
     }
 
-    private void initColorPicker(ColorPickerPreference preference) {
-        int intColor = Settings.System.getInt(getContentResolver(),
-                getString(R.string.pref_key_battery_save_mode_color), -2);
-        preference.setNewPreviewColor(intColor);
 
-    }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference.getKey().matches(getString(R.string.pref_key_battery_save_mode_color))) {
-                        String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String
-                                        .valueOf(newValue)));
-                        int intHex = ColorPickerPreference.convertToColorInt(hex);
-                        Settings.System.putInt(getContentResolver(),
-                                        getString(R.string.pref_key_battery_save_mode_color), intHex);
+                        int hex = Integer.valueOf(String.valueOf(newValue));
+                        Settings.System.putInt(getActivity().getContentResolver(),
+                                        getString(R.string.pref_key_battery_save_mode_color), hex);
                         return true;
                     }
                 return false;

@@ -21,10 +21,12 @@
         android:entries="@array/show_network_traffic_state_entries"
         android:entryValues="@array/show_network_traffic_state_values"
         android:persistent="false"/>
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
+    <com.digitalhigh.preference.XColorPickerPreference.XColorPickerPreference
         android:key="@string/pref_key_network_traffic_color"
         android:title="@string/network_traffic_color_style"
-        android:defaultValue="0xffffffff"
+        android:defaultValue="2533018"
+        android:layout="@layout/pref_colorpicker"
+        android:persistent="true"
         android:dependency="network_traffic_state"/>
     <ListPreference
         android:key="@string/pref_key_network_traffic_unit"

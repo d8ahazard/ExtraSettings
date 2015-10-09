@@ -28,7 +28,8 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.view.Menu;
 
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import com.digitalhigh.preference.XColorPickerPreference.XColorPickerPreference;
+
 
 public class NetworkTraffic extends PreferenceFragment
         implements OnPreferenceChangeListener {
@@ -43,7 +44,7 @@ public class NetworkTraffic extends PreferenceFragment
     private static final String NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD = "network_traffic_autohide_threshold";
 
     private ListPreference mNetTrafficState;
-    private ColorPickerPreference mNetTrafficColor;
+    private XColorPickerPreference mNetTrafficColor;
     private ListPreference mNetTrafficUnit;
     private ListPreference mNetTrafficPeriod;
     private CheckBoxPreference mNetTrafficAutohide;
@@ -86,13 +87,10 @@ public class NetworkTraffic extends PreferenceFragment
         mNetTrafficAutohideThreshold.setOnPreferenceChangeListener(this);
 
         mNetTrafficColor =
-                (ColorPickerPreference) prefSet.findPreference(NETWORK_TRAFFIC_COLOR);
+                (XColorPickerPreference) prefSet.findPreference(NETWORK_TRAFFIC_COLOR);
         mNetTrafficColor.setOnPreferenceChangeListener(this);
         int intColor = Settings.System.getInt(getActivity().getContentResolver(),
                 getString(R.string.pref_key_network_traffic_color), 0xffffffff);
-        String hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mNetTrafficColor.setSummary(hexColor);
-        mNetTrafficColor.setNewPreviewColor(intColor);
 
         if (TrafficStats.getTotalTxBytes() != TrafficStats.UNSUPPORTED &&
                 TrafficStats.getTotalRxBytes() != TrafficStats.UNSUPPORTED) {
@@ -138,9 +136,6 @@ public class NetworkTraffic extends PreferenceFragment
         Settings.System.putInt(getActivity().getContentResolver(),
                 getString(R.string.pref_key_network_traffic_color), DEFAULT_TRAFFIC_COLOR);
 
-        mNetTrafficColor.setNewPreviewColor(DEFAULT_TRAFFIC_COLOR);
-        String hexColor = String.format("#%08x", (0xffffffff & DEFAULT_TRAFFIC_COLOR));
-        mNetTrafficColor.setSummary(hexColor);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -155,12 +150,8 @@ public class NetworkTraffic extends PreferenceFragment
             updateNetworkTrafficState(index);
             return true;
         } else if (preference == mNetTrafficColor) {
-            String hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
-                    getString(R.string.pref_key_network_traffic_color), intHex);
+                    getString(R.string.pref_key_network_traffic_color), Integer.valueOf((String) newValue));
             return true;
         } else if (preference == mNetTrafficUnit) {
             mNetTrafficVal = setBit(mNetTrafficVal, MASK_UNIT, ((String) newValue).equals("1"));
